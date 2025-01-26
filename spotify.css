@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+    position: relative;
+}
+
+.home ul li {
+    display: flex;
+    gap: 15px;
+    width: 15px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+}
+
+/* .home{
+    padding: 10px;
+} */
+.heading {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding-top: 14px;
+    padding: 23px 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px;
+
+}
+
+.heading img {
+    width: 30px;
+}
+
+.library {
+    min-height: 80vh;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    /* color: grey; */
+    font-size: 10px;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0px;
+}
+
+.footer a {
+    color: grey;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(48, 44, 44, 0.505);
+}
+
+.header>* {
+    padding: 28px;
+}
+
+.spotifyplaylist {
+    padding: 10px;
+}
+
+.cardcontainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 30px;
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+.card {
+    width: 200px;
+    /* border: 2px solid red; */
+    background-color: #252525;
+    border-radius: 7px;
+    padding: 10px;
+    position: relative;
+
+}
+
+.card .coverimg {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.card>* {
+    padding-top: 10px;
+}
+
+.card .posterplay {
+    position: absolute;
+    right: 17px;
+    bottom:49px;
+    opacity: 0;
+    transition:all 1s ease-out;
+}
+.card:hover .posterplay{
+    bottom: 150px;
+    opacity: 1;
+}
+.playbar{
+    position: absolute;
+    bottom: 0;
+    background-color: #252525;
+    width: 99%;
+    padding: 15px;
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+.songlist ul{
+    padding: 0 12px;
+}
+.songlist ul li{
+    list-style-type: decimal;
+}

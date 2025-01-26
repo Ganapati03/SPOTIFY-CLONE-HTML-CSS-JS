@@ -1,0 +1,67 @@
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-item{
+    align-items: center;
+}
+.border{
+    border: 2px solid red;
+    margin:2px ;
+
+}
+.bg-black{
+    background-color: black;
+    color: white;
+}
+.invert{
+    filter: invert(1);
+}
+.bg-grey{
+    background-color: #121212;
+}
+.rounded{
+    border-radius: 7px;
+}
+.m-1{
+    margin: 5px;
+}
+.p-1{
+    padding: 14px;
+}
+.m-2{
+    margin: 16px 0px;
+}
+/* Apply the scrollbar styling to the entire website */
+body {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #444 #222; /* Scrollbar thumb and track colors for Firefox */
+  }
+  
+  /* Custom Scrollbar for Webkit Browsers (Chrome, Edge, Safari) */
+  body::-webkit-scrollbar {
+    width: 12px; /* Scrollbar width */
+    height: 12px; /* Scrollbar height for horizontal scrolling */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #222; /* Scrollbar track (background) */
+    border-radius: 6px; /* Rounded edges for the track */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #444, #666); /* Gradient thumb for a unique look */
+    border-radius: 6px; /* Rounded edges for the thumb */
+    border: 2px solid #222; /* Adds spacing between thumb and track */
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #666, #888); /* Slightly lighter gradient on hover */
+  }
+  
+  body::-webkit-scrollbar-corner {
+    background: #222; /* Corner color for scrollable areas */
+  }
+  
