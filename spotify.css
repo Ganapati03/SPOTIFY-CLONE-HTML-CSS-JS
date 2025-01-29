@@ -115,29 +115,87 @@ body {
 .card .posterplay {
     position: absolute;
     right: 17px;
-    bottom:49px;
+    bottom: 49px;
     opacity: 0;
-    transition:all 1s ease-out;
+    transition: all 1s ease-out;
 }
-.card:hover .posterplay{
+
+.card:hover .posterplay {
     bottom: 150px;
     opacity: 1;
 }
-.playbar{
-    position: absolute;
-    bottom: 0;
+
+.playbar {
+    position: fixed;
+    bottom: 30px;
     background-color: #252525;
-    width: 99%;
+    width: 70%;
     padding: 15px;
 }
-.songbuttons{
+
+.songbuttons {
     display: flex;
     justify-content: center;
     gap: 12px;
 }
-.songlist ul{
-    padding: 0 12px;
+
+.songlist {
+    height: 444px;
+    overflow: auto;
+    margin-bottom: 44px 0;
+
 }
-.songlist ul li{
-    list-style-type: decimal;
+
+.songlist ul {
+    padding: 0 12px;
+
+}
+
+.songlist ul li {
+    list-style-type: none;
+    display: flex;
+    gap: 12px;
+    padding: 1px 0;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 7px;
+    margin: 12px 0;
+    font-size: small;
+    justify-content: space-between;
+
+}
+
+.playnow {
+    display: flex;
+    align-items: center;
+
+}
+
+.seekbar {
+    width: 97%;
+    height: 2px;
+    border: 3px solid white;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+    margin: 6px;
+  cursor: pointer;
+}
+
+.circle {
+    height: 23px;
+    width: 23px;
+    background-color: white;
+    border-radius: 17px;
+    position: relative;
+    bottom: 10px;
+    transition: left 0.5s;
+    cursor: pointer;
+}
+.songbuttons{
+    cursor: pointer;
+}.mainbar{
+    display: flex;
+justify-content: space-between; 
+padding: 0 12px;   
 }
