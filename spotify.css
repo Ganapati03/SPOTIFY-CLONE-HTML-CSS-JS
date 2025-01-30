@@ -22,6 +22,13 @@ body {
     position: relative;
 }
 
+.hamburger {
+    display: none;
+}
+.cross{
+    display: none;
+}
+
 .home ul li {
     display: flex;
     gap: 15px;
@@ -88,7 +95,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     margin: 30px;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 80vh;
 }
 
@@ -172,14 +179,14 @@ body {
 }
 
 .seekbar {
-    width: 97%;
+    width: 69vw;
     height: 2px;
     border: 3px solid white;
     position: absolute;
     bottom: 0;
     border-radius: 10px;
     margin: 6px;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .circle {
@@ -192,10 +199,86 @@ body {
     transition: left 0.5s;
     cursor: pointer;
 }
-.songbuttons{
+
+.songbuttons {
     cursor: pointer;
-}.mainbar{
+}
+
+.mainbar {
     display: flex;
-justify-content: space-between; 
-padding: 0 12px;   
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.buttons>* {
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+    gap: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+        box-shadow: 0 0 0 0 #05bada66;
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+}
+
+@media (max-width: 1450px) {
+    .left {
+
+        position: absolute;
+        left: -100%;
+        transition: all .3s;
+        width: 333px;
+        z-index: 1;
+        background-color: black;
+    }
+
+    .left .cross {
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        display: block;
+        width: 32px;
+    }
+
+    .right {
+        width: 100%;
+    }
+
+    .playbar {
+        width: 88%;
+    }
+
+    .seekbar {
+        width: 87vw;
+
+    }
+
+    .hamburger {
+        display: block;
+        width: 30px;
+    }
+
 }
