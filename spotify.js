@@ -68,19 +68,26 @@ async function main() {
         }
     })
     currentsong.addEventListener("timeupdate", () => {
-        console.log(currentsong.currentTime, currentsong.duration)
-        document.querySelector(".circle").style.left = (currentsong.currentTime / currentsong.duration) * 100 + "%";
+        if (!isNaN(currentsong.duration)) {
+            let currentTimeFormatted = formatTime(currentsong.currentTime);
+            let durationFormatted = formatTime(currentsong.duration);
+            document.querySelector(".songtime").textContent = `${currentTimeFormatted} / ${durationFormatted}`;
+    
+            // Update progress bar
+            document.querySelector(".circle").style.left = (currentsong.currentTime / currentsong.duration) * 100 + "%";
+        }
     });
+    
     document.querySelector(".seekbar").addEventListener("click", e => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
         document.querySelector(".circle").style.left = percent + "%";
         currentsong.currentTime = ((currentsong.duration) * percent) / 100
 
-    });
-    document.querySelector(".hamburger").addEventListener("click", () => {
+    })
+    document.querySelector(".hamburger").addEventListener("click",()=>{
         document.querySelector(".left").style.left = "0";
     })
-    document.querySelector(".cross").addEventListener("click", () => {
+    document.querySelector(".cross").addEventListener("click",()=>{
         document.querySelector(".left").style.left = "-100%";
     })
 

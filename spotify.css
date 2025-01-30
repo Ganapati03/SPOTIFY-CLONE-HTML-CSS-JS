@@ -25,7 +25,8 @@ body {
 .hamburger {
     display: none;
 }
-.cross{
+
+.cross {
     display: none;
 }
 
@@ -169,8 +170,15 @@ body {
     margin: 12px 0;
     font-size: small;
     justify-content: space-between;
-
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
+
+.songlist ul li:hover {
+    background-color: rgba(255, 105, 0, 0.1); /* Subtle orange glow */
+    box-shadow: 0 0 12px rgba(255, 105, 0, 1), 0 0 20px rgba(255, 69, 0, 0.8); /* Glow effect */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
 
 .playnow {
     display: flex;
@@ -180,8 +188,9 @@ body {
 
 .seekbar {
     width: 69vw;
-    height: 2px;
-    border: 3px solid white;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6a00, #ff4500);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
     position: absolute;
     bottom: 0;
     border-radius: 10px;
@@ -189,16 +198,29 @@ body {
     cursor: pointer;
 }
 
-.circle {
-    height: 23px;
-    width: 23px;
-    background-color: white;
-    border-radius: 17px;
-    position: relative;
-    bottom: 10px;
-    transition: left 0.5s;
-    cursor: pointer;
+.seekbar:hover {
+    background: linear-gradient(90deg, #ff4500, #ff0000);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 1);
 }
+
+.circle {
+    height: 15px;
+    width: 15px;
+    background-color: #ff6a00;
+    box-shadow: 0 0 8px rgba(255, 105, 0, 0.8);
+    border-radius: 50%;
+    position: relative;
+    bottom: 7px;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.circle:hover {
+    background-color: #ff0000;
+    border: 2px solid #ffeb3b;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 20px rgba(255, 235, 59, 0.8);
+}
+
 
 .songbuttons {
     cursor: pointer;
