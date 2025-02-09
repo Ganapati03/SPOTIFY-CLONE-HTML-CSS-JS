@@ -61,12 +61,32 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
 
+async function displayAlbums() {
+    let a = await fetch("http://127.0.0.1:5500/songs/");
+    let response = await a.text();
+    let div = document.createElement("div");
+    div.innerHTML = response;
+    let anchors = document.getElementsByTagName("a")
+    console.log(anchors)
+}
+    // Array.from(anchors).forEach(e => {
+    //     console.log(e.href)
+        // if (element.target.href.startWith("/songs")) {
+        //     console.log("element.herf")
+        // }
+    // });
+    
+
 
 
 async function main() {
     await getsongs("songs/ncs");
     playMusic(songs[0], true);
     console.log(songs);
+
+    // display all albums on the page
+    displayAlbums()
+
 
 
     play.addEventListener("click", () => {
