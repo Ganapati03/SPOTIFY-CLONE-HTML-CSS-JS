@@ -62,20 +62,62 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch("http://127.0.0.1:5500/songs/");
-    let response = await a.text();
+    let response = await fetch("http://127.0.0.1:5500/songs/");
+    let text = await response.text();
+
     let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchors = document.getElementsByTagName("a")
-    console.log(anchors)
+    div.innerHTML = text;
+
+    let anchors = div.getElementsByTagName("a");
+    let cardcontainer = document.querySelector(".cardcontainer")
+    let albums = [];
+
+    Array.from(anchors).forEach(async e => {
+        let href = e.getAttribute("href");
+        if (href.startsWith("/songs/")) {
+            let folder = href.split("/").filter(Boolean).pop();
+            albums.push(folder);
+            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
+            let response = await a.json()
+            console.log(response)
+            cardcontainer.innerHTML = cardcontainer.innerHTML + `     <div data-folder="ncs" class="card">
+                        <div class="play">
+                            <img class="posterplay" src="img/posterplay.svg" alt="play button">
+                        </div>
+                        <img class="coverimg" src="songs/${folder}/cover.jpg" alt="Happy Hits Cover">
+                        <h2>${response.title}</h2>
+                        <p>${response.description}</p>
+                    </div>`
+        }
+    });
+    // console.log("Albums:", albums);
+    // return albums;
+     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        console.log(e, e.target, e.target.value)
+        currentsong.volume = parseInt(e.target.value) / 100
+    })
+    Array.from(document.getElementsByClassName("card")).forEach(e => {
+        console.log(e);
+        e.addEventListener("click", async item => {
+            try {
+                // Get the folder from the data attribute
+                const folder = item.currentTarget.dataset.folder;
+
+                // Get the songs for the selected folder
+                const songs = await getsongs(`songs/${folder}`);
+
+                // Log or display the songs for further handling
+
+
+                // You can add additional logic here to display songs or update UI
+            } catch (error) {
+                console.error('Error fetching songs:', error);
+            }
+        });
+    });
 }
-    // Array.from(anchors).forEach(e => {
-    //     console.log(e.href)
-        // if (element.target.href.startWith("/songs")) {
-        //     console.log("element.herf")
-        // }
-    // });
-    
+
+
 
 
 
@@ -171,29 +213,7 @@ async function main() {
         });
     }
 
-    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-        console.log(e, e.target, e.target.value)
-        currentsong.volume = parseInt(e.target.value) / 100
-    })
-    Array.from(document.getElementsByClassName("card")).forEach(e => {
-        console.log(e);
-        e.addEventListener("click", async item => {
-            try {
-                // Get the folder from the data attribute
-                const folder = item.currentTarget.dataset.folder;
-
-                // Get the songs for the selected folder
-                const songs = await getsongs(`songs/${folder}`);
-
-                // Log or display the songs for further handling
-                console.log(songs);
-
-                // You can add additional logic here to display songs or update UI
-            } catch (error) {
-                console.error('Error fetching songs:', error);
-            }
-        });
-    });
+   
 
 
 }
